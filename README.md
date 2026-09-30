@@ -43,45 +43,51 @@ java -cp out com.empresa.propostas.app.Aplicacao
 
 ## Saída esperada
 
-=== Verificação do Singleton ===
-Mesma instância (==)? true
-Moeda padrão : BRL
+=== Verificação do Singleton ===  
+
+Mesma instância (==)? true\
+Moeda padrão : BRL\
 Limite de desconto : 15.0%
 
-=== Proposta Básica (via Director) ===
-=== Proposta Comercial ===
-Cliente : Tech Solutions Ltda.
-Responsável : Ana Paula Ferreira
-Validade : 30 dias
-Moeda : BRL
+=== Proposta Básica (via Director) ===  
+
+=== Proposta Comercial ===  
+
+Cliente : Tech Solutions Ltda.\
+Responsável : Ana Paula Ferreira\
+Validade : 30 dias\
+Moeda : BRL\
 Itens:
 
-Licença de Software Corporativo | Qtd: 5 | Unit: 1200,00 | Subtotal: 6000,00
-Subtotal : 6000,00
-Total : BRL 6000,00
+Licença de Software Corporativo | Qtd: 5 | Unit: 1200,00 | Subtotal: 6000,00\
+Subtotal : 6000,00\
+Total : BRL 6000,00\
 
-=== Proposta Personalizada (via Builder direto) ===
-=== Proposta Comercial ===
-Cliente : Grupo Horizonte S.A.
-Responsável : Carlos Eduardo Lima
-Validade : 45 dias
-Moeda : BRL
-Itens:
+=== Proposta Personalizada (via Builder direto) ===  
 
-Consultoria em Arquitetura de Software | Qtd: 10 | Unit: 850,00 | Subtotal: 8500,00
-Desenvolvimento de API REST | Qtd: 40 | Unit: 620,00 | Subtotal: 24800,00
-Treinamento Técnico da Equipe | Qtd: 8 | Unit: 500,00 | Subtotal: 4000,00
-Observações : Pagamento em até 3 parcelas. Início previsto para 15/10/2026.
-Subtotal : 37300,00
-Desconto : 10,0% (-3730,00)
-Total : BRL 33570,00
+=== Proposta Comercial ===  
 
-=== Teste de Validação ===
+Cliente : Grupo Horizonte S.A.\
+Responsável : Carlos Eduardo Lima\
+Validade : 45 dias\
+Moeda : BRL\
+Itens:  
+
+Consultoria em Arquitetura de Software | Qtd: 10 | Unit: 850,00 | Subtotal: 8500,00\
+Desenvolvimento de API REST | Qtd: 40 | Unit: 620,00 | Subtotal: 24800,00\
+Treinamento Técnico da Equipe | Qtd: 8 | Unit: 500,00 | Subtotal: 4000,00\
+Observações : Pagamento em até 3 parcelas. Início previsto para 15/10/2026.\
+Subtotal : 37300,00\
+Desconto : 10,0% (-3730,00)\
+Total : BRL 33570,00\
+
+=== Teste de Validação ===  
+
 Validação capturada corretamente:
 
 A proposta deve possuir pelo menos um item.
 
-=== Execução encerrada com sucesso ===
+=== Execução encerrada com sucesso ===  
 
 ## Perguntas para responder no README
 
