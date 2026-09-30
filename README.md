@@ -1,6 +1,22 @@
 # Propostas Comerciais com Builder e Singleton
 Arquitetura e Padrões de Software - Aula 06  / Exercício prático
 
+## Sumário
+
+## Sumário
+
+- [Estrutura do projeto](#estrutura-do-projeto)
+- [Compilação](#compilação)
+- [Execução](#execução)
+- [Saída esperada](#saída-esperada)
+- [Perguntas conceituais](#perguntas-conceituais)
+  - [1. Qual problema do exercício foi resolvido pelo Builder?](#1-qual-problema-do-exercício-foi-resolvido-pelo-builder)
+  - [2. Por que PropostaComercial não deve ser Singleton?](#2-por-que-propostacomercial-não-deve-ser-singleton)
+  - [3. Qual é o escopo real da unicidade de ConfiguracaoComercial?](#3-qual-é-o-escopo-real-da-unicidade-de-configuracaocomercial)
+  - [4. Por que o Director é útil neste exercício, mas não é obrigatório para toda proposta?](#4-por-que-o-director-é-útil-neste-exercício-mas-não-é-obrigatório-para-toda-proposta)
+  - [5. Que dificuldade de teste surgiria se todas as classes chamassem ConfiguracaoComercial.getInstancia() internamente?](#5-que-dificuldade-de-teste-surgiria-se-todas-as-classes-chamassem-configuracaocomercialgetinstancia-internamente)
+- [Diagrama UML](#diagrama-uml)
+
 ## Estrutura do Projeto
 ```txt
 src/
@@ -112,3 +128,7 @@ O Builder é mais interessante para propostas com três itens distintos porque o
 5. Que dificuldade de teste surgiria se todas as classes chamassem ConfiguracaoComercial.getInstancia() internamente?
 
 O Singleton se tornaria uma dependência oculta e global de todas as classes. Em teste unitários, seria impossível substituir a configuração por valores diferentes sem modificar a classe ConfiguracaoComercial. Isso viola o princípio da inversão de dependência e torna os testes frágeis e interdependentes.
+
+## Diagrama UML
+
+![DiagramaUML](img/Diagrama UML.png)
