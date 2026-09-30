@@ -2,7 +2,7 @@
 Arquitetura e Padrões de Software - Aula 06  / Exercício prático
 
 ## Estrutura do Projeto
-
+```txt
 src/
 └── com/
 └── empresa/
@@ -19,7 +19,7 @@ src/
 │ └── DiretorPropostas.java
 └── app/
 └── Aplicacao.java
-
+```
 ## Compilação do Projeto
 
 
