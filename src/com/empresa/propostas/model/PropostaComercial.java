@@ -20,7 +20,7 @@ public final class PropostaComercial {
     private final String observacoes;
     private final String moeda;
 
-    PropostaComercial(
+    public PropostaComercial(
         String cliente,
         String responsavel,
         int validadeEmDias,
