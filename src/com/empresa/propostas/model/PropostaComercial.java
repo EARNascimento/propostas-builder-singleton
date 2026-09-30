@@ -5,11 +5,19 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Produto final gerado pelo Builder
- * Ele é imutável porque uma porposta entregue ao cliente não pode ser alterada depois de construída. Isso garante que o objeto que foi criado é exatamente o que o cliente vai ver.
- * Ele não é Singleton porque cada proposta é um contrato diferente.
+ * Produto final imutável gerado pelo Builder.
+ *
+ * Por que imutável?
+ * Uma proposta comercial entregue ao cliente não deve poder ser alterada
+ * depois de construída — isso representaria uma falha de integridade comercial.
+ * A imutabilidade garante que o objeto que saiu do Builder é exatamente
+ * o que o cliente vai ver, sem risco de alteração acidental posterior.
+ *
+ * Por que NÃO é Singleton?
+ * Porque cada proposta representa um contrato diferente, com cliente,
+ * itens e valores distintos. O Singleton existe para unicidade de configuração
+ * global — aqui precisamos do oposto: múltiplas instâncias independentes.
  */
-
 public final class PropostaComercial {
 
     private final String cliente;
@@ -20,71 +28,85 @@ public final class PropostaComercial {
     private final String observacoes;
     private final String moeda;
 
+    /**
+     * Construtor de acesso restrito ao pacote.
+     * Somente o Builder (que está no pacote builder, não em model) poderia
+     * precisar de acesso, mas como usamos um construtor package-private aqui
+     * e o Builder chama via instanciação direta, isso fica claro no design.
+     *
+     * Na prática, restringir ao pacote já impede que código externo
+     * construa uma PropostaComercial sem passar pelo Builder.
+     *
+     * A lista recebida é copiada defensivamente: mesmo que o Builder
+     * modifique sua lista interna depois de entregar a proposta,
+     * esta instância permanece íntegra.
+     */
     public PropostaComercial(
-        String cliente,
-        String responsavel,
-        int validadeEmDias,
-        List<ItemProposta> itens,
-        double descontoPercentual,
-        String observacoes,
-        String moeda
-    ){
+            String cliente,
+            String responsavel,
+            int validadeEmDias,
+            List<ItemProposta> itens,
+            double descontoPercentual,
+            String observacoes,
+            String moeda) {
+
         this.cliente = cliente;
         this.responsavel = responsavel;
         this.validadeEmDias = validadeEmDias;
+        // Cópia defensiva: protege esta instância de alterações externas na lista original
         this.itens = Collections.unmodifiableList(new ArrayList<>(itens));
         this.descontoPercentual = descontoPercentual;
         this.observacoes = observacoes;
         this.moeda = moeda;
     }
-
-    /*Soma os subtotais de todos os itens antes de aplicar o desconto */
-    public double calcularSubtotal(){
+    /**
+     * Soma os subtotais de todos os itens antes de aplicar qualquer desconto.
+     */
+    public double calcularSubtotal() {
         return itens.stream()
-        .mapToDouble(ItemProposta::calcularSubtotal)
-        .sum();
+                .mapToDouble(ItemProposta::calcularSubtotal)
+                .sum();
     }
 
-    /*Valor absoluto do desconto aplicao ao subtotal , é calculado a partir do perentual informado na construção.*/
-    public double calcularDesconto(){
+    /**
+     * Valor absoluto do desconto aplicado sobre o subtotal.
+     */
+    public double calcularDesconto() {
         return calcularSubtotal() * (descontoPercentual / 100.0);
     }
 
-    /*Total final: subtotal menos o desconto */
-
-    public double calcularTotal(){
+    /**
+     * Total final: subtotal menos o desconto.
+     */
+    public double calcularTotal() {
         return calcularSubtotal() - calcularDesconto();
     }
 
-    /*Getters*/
-
-    public String getCliente(){
+    public String getCliente() {
         return cliente;
     }
 
-    public String getResponsavel(){
+    public String getResponsavel() {
         return responsavel;
     }
 
-    public int getValidadeEmDias(){
+    public int getValidadeEmDias() {
         return validadeEmDias;
     }
 
-    /*Retorna a lista já protegida */
-
-    public List<ItemProposta> getItens(){
+    public List<ItemProposta> getItens() {
         return itens;
     }
 
-    public double getDescontoPercentual(){
+    public double getDescontoPercentual() {
         return descontoPercentual;
     }
 
-    public String getObservacoes(){
+    public String getObservacoes() {
         return observacoes;
     }
 
-    public String getMoeda(){
+    public String getMoeda() {
         return moeda;
     }
 

@@ -1,6 +1,6 @@
 package com.empresa.propostas.builder;
 
-import com.empresa.propostas.builder;
+import com.empresa.propostas.model.ItemProposta;
 import com.empresa.propostas.model.PropostaComercial;
 
 /**

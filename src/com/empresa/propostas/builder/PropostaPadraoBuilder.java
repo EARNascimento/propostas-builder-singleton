@@ -99,7 +99,7 @@ public class PropostaPadraoBuilder implements PropostaBuilder {
         validarDesconto();
 
         // Produto construído com os dados acumulados e validados
-        PropostaComercial proposta = PropostaComercial.criar(
+        PropostaComercial proposta = new PropostaComercial(
                 cliente,
                 responsavel,
                 validadeEmDias,
