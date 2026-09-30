@@ -131,4 +131,4 @@ O Singleton se tornaria uma dependência oculta e global de todas as classes. Em
 
 ## Diagrama UML
 
-![DiagramaUML](img/Diagrama UML.png)
+![Diagrama UML da aplicação de propostas comerciais, em um diagrama de classes que relaciona ConfiguracaoComercial como Singleton, PropostaComercial e ItemProposta como modelos, PropostaBuilder e PropostaPadraoBuilder como builders, DiretorPropostas como director e Aplicacao como ponto de execução. O diagrama apresenta a estrutura técnica e as relações entre os componentes, sem conteúdo emocional relevante.](img/Diagrama UML_cfb.png)
